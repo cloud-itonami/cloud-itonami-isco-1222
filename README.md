@@ -6,12 +6,27 @@ is the FIRST wave-1 blueprint batch: management work is cognitive
 (no robotics gate), sequenced after the wave-0 cognitive substrate in
 rollout priority.
 
-**Maturity: `:blueprint`** — blueprint only; **no actor implementation
-yet**, and none is claimed. The implemented actor will follow the
-fleet-standard pattern (advisor-LLM sealed behind the independent
-`:advertising-pr-management-governor` governor, human approval workflow, append-only
-audit ledger); management decisions with external or financial effect
-are always :external-send / escalated, never auto-committed.
+**Maturity: `:implemented`** — AdvertisingPRManagementAdvisor ⊣
+AdvertisingPRManagementGovernor as a langgraph StateGraph
+(`intake → advise → govern → decide → commit/hold`, human-approval
+interrupt), modeled on cloud-itonami-isco-4311's bookkeeping actor.
+13 tests / 27 assertions green.
+
+The advertising HARD invariants — both registered sets, checked
+deterministically:
+
+1. **Claim substantiation** — every claim in the copy must be a member
+   of this client's registered substantiation set (subset check).
+   Advertising is the citation of registered evidence, not creative
+   writing; another client's evidence does not count.
+2. **Prohibited claims** — the intersection of the copy's claims and
+   the registered prohibition table must be empty. The blacklist is
+   arithmetic, not tone — and regulation outranks evidence (a
+   substantiated claim that is also prohibited still holds).
+
+Also HARD: unregistered organization, non-`:propose` effect.
+Escalations (always human sign-off): `:publish-ad` /
+`:issue-press-release` (external publication), low confidence (< 0.6).
 
 AGPL-3.0-or-later, forkable by any qualified operator. Part of the
 [cloud-itonami](https://itonami.cloud) open business fleet.
