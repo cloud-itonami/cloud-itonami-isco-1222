@@ -1,0 +1,11 @@
+[{:itonami.blueprint/id "cloud-itonami-isco-1222"
+  :itonami.blueprint/name "Community Advertising & PR Management"
+  :itonami.blueprint/isco-08 "1222"
+  :itonami.blueprint/domain :business/advertising-pr-management
+  :itonami.blueprint/license "AGPL-3.0-or-later"
+  :itonami.blueprint/social-impact [:transparent-communication :fair-dealing :local-jobs]
+  :itonami.blueprint/governor :advertising-pr-management-governor
+  :itonami.blueprint/robotics true
+  :itonami.blueprint/required-technologies [:robotics :identity :forms :dmn :bpmn :audit-ledger]
+  :itonami.blueprint/status :public-oss
+  :db/id -1}]
