@@ -69,7 +69,7 @@
   `:issue-press-release`; escalate -> human approve -> commit) and the
   plain auto-commit path (including the \"no claims asserted\" case).
 
-  Usage: `clojure -M:render-html [out-file]`
+  Usage: `kbb -M:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [jp-go-dds.skin]
             [kotoba.lang.text :as str]
@@ -217,7 +217,7 @@
      "<main>\n"
      "  <section class=\"card\">\n"
      "    <h2>Registered clients &amp; claim registers</h2>\n"
-     "    <p class=\"muted\">Demo snapshot — build-time-generated from <code>advertpr.store</code> via <code>advertpr.render-html</code> (<code>clojure -M:render-html</code>), regenerated nightly. Substantiated/prohibited claims and committed-record count are live re-reads of the store after the real graph ran — never remembered numbers.</p>\n"
+     "    <p class=\"muted\">Demo snapshot — build-time-generated from <code>advertpr.store</code> via <code>advertpr.render-html</code> (<code>kbb -M:render-html</code>), regenerated nightly. Substantiated/prohibited claims and committed-record count are live re-reads of the store after the real graph ran — never remembered numbers.</p>\n"
      "    <table>\n"
      "      <thead><tr><th>Client</th><th>Name</th><th>Substantiated claims</th><th>Prohibited claims</th><th>Committed records</th><th>Last op status</th></tr></thead>\n"
      "      <tbody>\n"
