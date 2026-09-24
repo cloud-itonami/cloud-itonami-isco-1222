@@ -1,0 +1,33 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:physics` runs it.
+;;
+;; The README declares advertising and public relations management
+;; (ISCO 1222) a wave-1 "design & governance" occupation with no robotics
+;; gate: the core work is cognitive. The residual physical work a robot would
+;; do for a PR team is putting up campaign material: raising poster boards
+;; onto the hanging rail, and proof-loading the steel rods a suspended banner
+;; hangs from.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isco-1222"
+ :cases
+ [{:id :poster-board-to-rail
+   :kind :manipulator
+   :procedure "arm raises a framed campaign poster board from the floor stand to the gallery hanging rail"
+   :params {:l1-m 0.80 :l2-m 0.75 :m1-kg 7.0 :m2-kg 5.0
+            :from [0.70 0.20] :to [0.45 1.40] :duration-s 3.0 :steps 450}
+   :sweep {:param :payload-kg :values [2.0 4.0 6.0 9.0 12.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 150.0 :basis "estimate: continuous shoulder torque of a long-reach (1.5 m) collaborative arm in the ~10 kg class"}
+   :boundary {:lo 0.5 :hi 40.0}}
+  {:id :banner-hanger-rod-proof
+   :kind :material
+   :procedure "3 mm stainless-steel hanger rod for a suspended atrium banner is proof-loaded; banner weight plus wind load swept"
+   :params {:length-m 0.10 :area-m2 7.07e-6 :youngs-modulus-pa 193.0e9 :yield-stress-pa 205.0e6
+            :hardening-pa 2.0e9 :density-kg-m3 8000.0}
+   :sweep {:param :max-force-n :values [500.0 1000.0 1300.0 1600.0 2000.0]}
+   :quantity :final-strain
+   :limit {:max 0.00106 :basis "ASTM A276 type 316 annealed bar: minimum yield strength 205 MPa; with E = 193 GPa the elastic-limit strain is 205/193000 = 0.00106"}
+   :boundary {:lo 300.0 :hi 2500.0}}]}
