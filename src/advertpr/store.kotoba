@@ -1,6 +1,6 @@
 (ns advertpr.store
   "SSoT for the ISCO-08 1222 community advertising & PR management
-  actor (itonami actor pattern, ADR-2607011000 / CLAUDE.md Actors
+  actor (itonami actor pattern, ADR-2607011000 / AGENTS.md Actors
   section). Modeled on cloud-itonami-isco-4311's bookkeeping.store.
 
   Domain:
